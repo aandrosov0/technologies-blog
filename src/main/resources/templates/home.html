@@ -1,0 +1,71 @@
+<#import "widgets/header.html" as header>
+<#import "widgets/navbar.html" as navbar>
+<#import "widgets/footer.html" as footer>
+<#import "widgets/search.html" as search>
+<#import "widgets/pagination.html" as pagination>
+<#import "widgets/categories.html" as categories_n>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Блог - Главная</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../static/css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        <@navbar.widget home="active" about="" contacts=""/>
+        <!-- Page header with logo and tagline-->
+        <@header.widget message="Добро пожаловать на сайт!" description=""/>
+        <!-- Page content-->
+        <div class="container" style="min-height: 100vh;">
+            <div class="row">
+                <!-- Blog entries-->
+                <div class="col-lg-8">
+                    <!-- Nested row for blog posts-->
+                    <div class="row">
+                        <#if articles?size == 0>
+                        <h1 class="text-center">Статьи не найдены</h1>
+                        <#else>
+                        <#list articles?chunk(3) as row>
+                        <div class="col-lg-6">
+                            <#list row as article>
+                            <div class="card mb-4">
+                                <a href="/article/${article.id}"><img class="card-img-top" src="${article.imageUrl}" alt="..." /></a>
+                                <div class="card-body">
+                                    <div class="small text-muted">January 1, 2023</div>
+                                    <h2 class="card-title h4">${article.title}</h2>
+                                    <p class="card-text">${article.content[0..*92]}...</p>
+                                    <a class="btn btn-primary" href="/article/${article.id}">Читать дальше →</a>
+                                </div>
+                            </div>
+                            </#list>
+                        </div>
+                        </#list>
+                        </#if>
+                    </div>
+                    <!-- Pagination-->
+                    <#if pages gt 0>
+                        <@pagination.widget page=page pages=pages/>
+                    </#if>
+                </div>
+                <!-- Side widgets-->
+                <div class="col-lg-4">
+                    <!-- Search widget-->
+                    <@search.widget/>
+                    <!-- Categories widget-->
+                    <@categories_n.widget categories=categories/>
+                </div>
+            </div>
+        </div>
+        <!-- Footer-->
+        <@footer.widget/>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

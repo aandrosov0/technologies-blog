@@ -1,0 +1,33 @@
+<#import "widgets/sidebar.html" as sidebar>
+<#import "widgets/footer.html" as footer>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Блог - Главная</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../static/css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Page content-->
+        <div class="row w-100 m-0 p-0" style="min-height: 100vh;">
+            <div class="col-lg-2 m-0 p-0">
+                <!-- Sidebar-->
+                <@sidebar.widget home="active" articles="" editor=""/>
+            </div>
+            <div class="col-lg text-bg-dark">
+                <!-- Elements -->
+                <div class="container m-0 p-0 mt-3">
+                    <h1 class="text-center">Привет, ${username}!</h1>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

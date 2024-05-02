@@ -1,0 +1,58 @@
+<#import "widgets/navbar.html" as navbar>
+<#import "widgets/search.html" as search>
+<#import "widgets/footer.html" as footer>
+<#import "widgets/categories.html" as categories_n>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Блог - ${article.title}</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../static/css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        <@navbar.widget home="" about="" contacts=""/>
+        <!-- Page content-->
+        <div class="container mt-5" style="min-height: 100vh;">
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4">
+                            <!-- Post title-->
+                            <h1 class="fw-bolder mb-1">${article.title}</h1>
+                            <!-- Post meta content-->
+                            <div class="text-muted fst-italic mb-2">Posted on January 1, 2023 by Start Bootstrap</div>
+                            <!-- Post categories-->
+                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">${article.category}</a>
+                        </header>
+                        <!-- Preview image figure-->
+                        <figure class="mb-4"><img class="img-fluid rounded" src="${article.imageUrl}" alt="..." /></figure>
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            ${article.content}
+                        </section>
+                    </article>
+                </div>
+                <!-- Side widgets-->
+                <div class="col-lg-4">
+                    <!-- Search widget-->
+                    <@search.widget/>
+                    <!-- Categories widget-->
+                    <@categories_n.widget categories=categories/>
+                </div>
+            </div>
+        </div>
+        <!-- Footer-->
+        <@footer.widget/>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

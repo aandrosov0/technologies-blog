@@ -1,0 +1,52 @@
+<#import "widgets/sidebar.html" as sidebar>
+<#import "widgets/footer.html" as footer>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Блог - Главная</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../static/css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Page content-->
+        <div class="row w-100 m-0 p-0" style="min-height: 100vh;">
+            <div class="col-lg-2 m-0 p-0">
+                <!-- Sidebar-->
+                <@sidebar.widget home="" articles="active" editor=""/>
+            </div>
+            <div class="col-lg text-bg-dark">
+                <!-- Elements -->
+                <div class="container d-flex flex-row flex-wrap m-0 p-0 mt-3 w-100">
+                    <div class="row w-100">
+                        <#list articles?chunk(3) as row>
+                        <div class="col-lg-6">
+                            <#list row as article>
+                            <div class="card mb-3 text-bg-dark text-center">
+                                <div class="card-header">
+                                    ${article.title}
+                                </div>
+                                <div class="card-body">
+                                    <a class="btn btn-primary" href="/article/${article.id}">К статье</a>
+                                    <a class="btn btn-light mx-2" href="/admin/edit/${article.id}">Обновить</a>
+                                    <form class="d-inline" action="/article/delete/${article.id}" method="post">
+                                        <input class="btn btn-danger" type="submit" value="Удалить"/>
+                                    </form>
+                                </div>
+                            </div>
+                            </#list>
+                        </div>
+                        </#list>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
