@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
-    <mapping directory="/disk_b/Documents/Kotlin/aandrosov-blog" vcs="Git" />
+    <mapping directory="/disk_B/Documents/Projects/technologies-blog" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
 </project>

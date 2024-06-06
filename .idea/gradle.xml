@@ -5,9 +5,10 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="17" />
         <option name="modules">
           <set>
-            <option value="/disk_b/Documents/Kotlin/aandrosov-blog" />
+            <option value="/disk_B/Documents/Projects/technologies-blog" />
           </set>
         </option>
       </GradleProjectSettings>
