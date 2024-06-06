@@ -4,7 +4,7 @@ val exposedVersion: String by project
 val slf4jSimpleVersion: String by project
 
 plugins {
-    kotlin("jvm") version "1.9.23"
+    kotlin("jvm") version "2.0.0"
     application
 }
 
