@@ -78,7 +78,7 @@ fun Route.getArticleAddRoute() = post("/article") {
     }
 
     daoCategory.get(category) ?: daoCategory.add(category)
-    val id = daoArticle.add(title, imageUrl, content, category)!!.id
+    val id = daoArticle.add(title, content, imageUrl, category)!!.id
     call.respondRedirect("/article/$id")
 }
 
